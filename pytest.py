@@ -7,7 +7,9 @@ import sys, itertools, csv, os, collections
 def ask() -> bool:
     # Makes the global varibel in this function
     size = sudoku = gridSize = False
-    
+
+    os.system('cls||clear')
+
     # Asks the size of the sudoku
     try:
         size = int(input("Enter how many rows there are (default 9): "))
@@ -37,6 +39,7 @@ To exit type exit
             if sudoku:
                 break
         else:
+            os.system('cls||clear')
             print("New try.......")
 
     # Returns False if its solved correctly
