@@ -1,5 +1,10 @@
 #! /bin/python3
-import sys, itertools, csv, os, collections
+import collections
+import itertools
+import csv
+import sys
+import os
+
 
 # Asks the ueser how they what to enter the sudoku
 # Returns the bool because it runs the checksudoku funktion that returns true if it was correct
@@ -76,16 +81,16 @@ def importFromCSV(path, size=3):
         if rows.line_num != size:
             print("There is not the correct amount of rows there is only: " + str(len(rows)))
             return False
-    
+
     # Return the 2D array that is the sudoku
     return sudoku
-            
+
 
 # The function that adds the row to the sudoku array if it's the correct length
 # Same thing as importFromCSV function I know I cloud run the checkrow for every row
 def addToSudoku(sudoku, row, rowNumber, size) -> None:
     ending = False
-    # If there is a char in the row 
+    # If there is a char in the row
     # The map function will raise an error if ther are anything else then numbers
     try:
         row = map(int, row.split(" "))
@@ -101,7 +106,7 @@ def addToSudoku(sudoku, row, rowNumber, size) -> None:
             ending = ":"
         else:
             ending = " again with the correct amount of numbers:"
-    
+
     # Dose not return anything becouse it calls the function insted
     finally:
         message = "Enter row " + str(rowNumber) + ending
@@ -124,7 +129,7 @@ def check(row, message, size):
     # The set function makes an array of the array but every number will one appere one time
     # Here are many ways to do it I did the first one becouse it's the fastest one I cloud think of
     # If we would whan't to speed it up we cloud take away the check that the number is between
-    # 0 and the size of the array 
+    # 0 and the size of the array
 
     # This is the absolute fastes way to check true the row
     numbers = collections.defaultdict(bool)
@@ -148,7 +153,7 @@ def check(row, message, size):
     numbers = {}
     for number in row:
         numbers[number] = 0
-    
+
     if not len(numbers) == size:
         sys.exit(message)
     '''
